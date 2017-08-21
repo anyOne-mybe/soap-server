@@ -1,0 +1,9 @@
+.user span {
+	display: inline-block;
+	vertical-align: top;
+	height: 30px;
+	border-right: 1px solid #c5b8b8;
+	background: #f7efef;
+	padding: 0 5px;
+	text-align: center;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://cxf.apache.org/jaxrs
+       http://cxf.apache.org/schemas/jaxrs.xsd
+        http://cxf.apache.org/jaxws
+       http://cxf.apache.org/schemas/jaxws.xsd">
+
+
+
+	<!-- 发布Webservice服务 -->
+	<jaxws:endpoint implementor="#bookActionImpl" address="/book">
+		<jaxws:inInterceptors>
+			<ref bean="cxfInLogger" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<ref bean="cxfOutLogger" />
+		</jaxws:outInterceptors>
+	</jaxws:endpoint>
+
+	<!-- <jaxws:client id="outerTest" serviceClass="com.guan.action.IBookAction" -->
+	<!-- address="http://localhost:8081/book"> -->
+	<!-- <jaxws:outInterceptors> -->
+	<!-- <ref bean="bookIntecepter" /> -->
+	<!-- <ref bean="cxfOutLogger" /> -->
+	<!-- </jaxws:outInterceptors> -->
+	<!-- </jaxws:client> -->
+
+	<bean id="cxfOutLogger" class="org.apache.cxf.interceptor.LoggingOutInterceptor">
+	</bean>
+
+	<bean id="cxfInLogger" class="org.apache.cxf.interceptor.LoggingInInterceptor">
+	</bean>
+
+</beans>
