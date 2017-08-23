@@ -25,7 +25,7 @@ public class BookActionImpl implements IBookAction
         List<Book> books = new ArrayList<>();
 
         Book book = new Book();
-        book.setName( "Java入门到放弃" );
+        // book.setName( "Java入门到放弃" );
 
         books.add( book );
 
